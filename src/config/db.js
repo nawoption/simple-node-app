@@ -1,8 +1,10 @@
 const mongoose = require("mongoose");
+const config = require("./index");
+
 const connectDB = async () => {
     try {
         mongoose
-            .connect(process.env.DB_LINK, {
+            .connect(config.env.MONGO_URI, {
                 serverSelectionTimeoutMS: 5000,
             })
             .then(async () => {
